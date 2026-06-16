@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lumière — Premium Stock Photography</title>
 
-  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- TAILWIND CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -45,27 +43,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Masonry Grid Setup */
-    .photo-grid {
-      columns: 4;
-      column-gap: 20px;
-    }
-
     .photo-card {
-      break-inside: avoid;
-      margin-bottom: 24px;
-      position: relative;
       background: #FFFDF9;
       border-radius: 4px;
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-    }
-
-    .photo-card img {
-      width: 100%;
-      display: block;
-      border-radius: 4px 4px 0 0;
     }
 
     .info-deck {
@@ -87,13 +70,13 @@
       color: #FFFDF9;
       background: #111110;
       border-radius: 2px;
+      transition: background 0.2s ease;
+    }
+    .license-btn:hover {
+      background: #000000;
     }
 
     .photo-card.hidden { display: none; }
-
-    @media (max-width: 1100px) { .photo-grid { columns: 3; } }
-    @media (max-width: 700px)  { .photo-grid { columns: 2; } }
-    @media (max-width: 450px)  { .photo-grid { columns: 1; } }
 
     .nav-link { color: #111110 !important; font-weight: 500; }
     .nav-link:hover { border-bottom: 1px solid #111110; }
@@ -102,7 +85,6 @@
 
 <body class="bg-brand-mist text-brand-ink">
 
-  <!-- NAVIGATION BAR -->
   <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-mist/95 backdrop-blur-md border-b border-brand-stone">
     <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2">
@@ -118,7 +100,6 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
   <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-brand-stone/40">
     <div class="absolute inset-0 z-0">
       <img src="images/kadupul.jpg" class="w-full h-full object-cover opacity-20" alt="" />
@@ -130,7 +111,6 @@
         Capture the quiet <br/> <em class="font-normal italic">beauty of the world.</em>
       </h1>
 
-      <!-- Search Bar UI -->
       <form class="flex w-full max-w-xl mx-auto bg-white rounded-sm shadow-md overflow-hidden border border-brand-stone" onsubmit="event.preventDefault();">
         <input type="text" placeholder="Search for nature photography..." class="flex-1 px-6 py-4 text-sm outline-none text-brand-ink" />
         <button class="bg-brand-ink text-white px-8 py-4 text-xs uppercase tracking-widest hover:bg-black transition-all">Search</button>
@@ -138,51 +118,59 @@
     </div>
   </section>
 
- 
-   <!-- GALLERY SECTION -->
   <main id="gallery" class="max-w-7xl mx-auto px-6 py-20">
     
-    <!-- Filter Tabs Buttons -->
     <div class="flex flex-wrap gap-3 mb-12 justify-center">
       <button class="filter-btn px-6 py-2 text-[10px] uppercase tracking-widest border border-brand-ink bg-brand-ink text-white" onclick="filterGallery('all', this)">All</button>
       <button class="filter-btn px-6 py-2 text-[10px] uppercase tracking-widest border border-brand-stone text-brand-dust" onclick="filterGallery('nature', this)">Nature</button>
     </div>
 
-    <!-- Gallery Grid (Changed to CSS Grid for equal sizing) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       
-      <!-- Card 1: Sunset (Nature) -->
       <div class="photo-card" data-category="nature">
-        <div class="w-full aspect-[3/4] overflow-hidden rounded-t-[4px]">
-          <img src="images/sunset.jpg" alt="Aesthetic sunset photography with tree silhouettes during golden hour in Sri Lanka" class="w-full h-full object-cover" loading="lazy" />
+        <div class="w-full aspect-[3/4] overflow-hidden rounded-t-[4px] cursor-pointer" onclick="openLightbox('images/sunset.jpg', 'Golden Hour Nature Silhouette')">
+          <img src="images/sunset.jpg" alt="Aesthetic sunset photography with tree silhouettes during golden hour in Sri Lanka" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" loading="lazy" />
         </div>
         <div class="info-deck flex-1">
           <div class="flex flex-col">
             <span class="text-xs font-medium text-brand-ink">Golden Hour Nature Silhouette</span>
             <span class="text-[9px] text-brand-dust">Sri Lanka</span>
           </div>
-          <a href="images/sunset.jpg" download class="license-btn">Download</a>
+          <a href="images/sunset.jpg" download="sunset.jpg" target="_blank" class="license-btn">Download</a>
         </div>
       </div>
 
-      <!-- Card 2: Kadupul (Nature) -->
       <div class="photo-card" data-category="nature">
-        <div class="w-full aspect-[3/4] overflow-hidden rounded-t-[4px]">
-          <img src="images/kadupul.jpg" alt="Rare white Kadupul flower blooming at night, premium macro aesthetic photography" class="w-full h-full object-cover" loading="lazy" />
+        <div class="w-full aspect-[3/4] overflow-hidden rounded-t-[4px] cursor-pointer" onclick="openLightbox('images/kadupul.jpg', 'Midnight Kadupul Bloom')">
+          <img src="images/kadupul.jpg" alt="Rare white Kadupul flower blooming at night, premium macro aesthetic photography" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" loading="lazy" />
         </div>
         <div class="info-deck flex-1">
           <div class="flex flex-col">
             <span class="text-xs font-medium text-brand-ink">Midnight Kadupul Bloom</span>
             <span class="text-[9px] text-brand-dust">Sri Lanka</span>
           </div>
-          <a href="images/kadupul.jpg" download class="license-btn">Download</a>
+          <a href="images/kadupul.jpg" download="kadupul.jpg" target="_blank" class="license-btn">Download</a>
         </div>
       </div>
                
     </div>
   </main>
 
-  <!-- FOOTER -->
+  <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden flex flex-col items-center justify-center p-4 transition-all duration-300">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl font-light hover:text-brand-fog transition-colors">&times;</button>
+    
+    <div class="max-w-4xl max-h-[75vh] flex items-center justify-center overflow-hidden">
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[70vh] object-contain rounded-sm" />
+    </div>
+
+    <div class="mt-4 flex flex-col sm:flex-row items-center gap-4 justify-between w-full max-w-xl bg-brand-ink/60 backdrop-blur-md p-4 rounded border border-white/10">
+      <span id="lightbox-title" class="text-white text-sm tracking-wide font-medium"></span>
+      <a id="lightbox-download" href="" download target="_blank" class="px-6 py-2 bg-white text-brand-ink text-xs uppercase font-semibold tracking-widest rounded-sm hover:bg-brand-stone transition-all">
+        Download Original File
+      </a>
+    </div>
+  </div>
+
   <footer class="bg-brand-ink text-white py-16 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div class="text-center md:text-left">
@@ -200,6 +188,7 @@
   </footer>
 
   <script>
+    // Gallery Filter Function
     function filterGallery(category, btn) {
       const cards = document.querySelectorAll('.photo-card');
       const btns = document.querySelectorAll('.filter-btn');
@@ -219,6 +208,38 @@
         }
       });
     }
+
+    // Lightbox Open Function
+    function openLightbox(imgSrc, titleText) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxDownload = document.getElementById('lightbox-download');
+
+      lightboxImg.src = imgSrc;
+      lightboxTitle.innerText = titleText;
+      lightboxDownload.href = imgSrc;
+      lightboxDownload.setAttribute('download', imgSrc.split('/').pop());
+
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden'; // Background scrolling නවත්වයි
+    }
+
+    // Lightbox Close Function
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = 'auto'; // Background scrolling සාමාන්‍ය තත්වයට පත් කරයි
+    }
+
+    // Close on clicking outside the image background
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
   </script>
 </body>
 </html>
