@@ -89,8 +89,8 @@
 
 <body class="bg-brand-mist text-brand-ink">
   
-<script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
-
+  <!-- ADSTERRA BANNER CONFIGURATION SCRIPT -->
+  <script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
 
   <!-- NAVIGATION BAR -->
   <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-mist/95 backdrop-blur-md border-b border-brand-stone">
@@ -115,23 +115,12 @@
     </div>
 
     <div class="relative z-10 max-w-3xl mx-auto mt-16">
-      <script>
-  atOptions = {
-    'key' : '1a044cfac8693d5af1a4bfe1d0538227',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
-
       <p class="text-brand-dust text-[11px] tracking-[0.3em] uppercase mb-4 font-semibold">Curated Aesthetic Imagery</p>
       <h1 class="text-brand-ink font-display text-5xl md:text-7xl font-light mb-8 leading-tight">
         Capture the quiet <br/> <em class="font-normal italic">beauty of the world.</em>
       </h1>
 
-      <!-- Search Bar UI (searchGallery ෆන්ක්ෂන් එක Onsubmit එකට සම්බන්ධ කර ඇත) -->
+      <!-- Search Bar UI -->
       <form class="flex w-full max-w-xl mx-auto bg-white rounded-sm shadow-md overflow-hidden border border-brand-stone" onsubmit="searchGallery(event)">
         <input id="search-input" type="text" placeholder="Search for nature photography..." class="flex-1 px-6 py-4 text-sm outline-none text-brand-ink" />
         <button type="submit" class="bg-brand-ink text-white px-8 py-4 text-xs uppercase tracking-widest hover:bg-black transition-all">Search</button>
@@ -139,8 +128,24 @@
     </div>
   </section>
 
+  <!-- 🎯 AD 1: 728x90 LEADERBOARD BANNER (GALLERY එකට උඩින් මැදට වෙන්න පිහිටුවා ඇත) -->
+  <div class="max-w-7xl mx-auto px-6 mt-12 flex justify-center overflow-hidden">
+    <div class="w-full max-w-[728px]">
+      <script>
+        atOptions = {
+          'key' : '1a044cfac8693d5af1a4bfe1d0538227',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
+    </div>
+  </div>
+
   <!-- GALLERY SECTION -->
-  <main id="gallery" class="max-w-7xl mx-auto px-6 py-20">
+  <main id="gallery" class="max-w-7xl mx-auto px-6 py-12">
     
     <!-- Filter Tabs Buttons -->
     <div class="flex flex-wrap gap-3 mb-12 justify-center">
@@ -184,6 +189,14 @@
     </div>
   </main>
 
+  <!-- 🎯 AD 2: NATIVE BANNER AD (FOOTER එකට කෙළින්ම උඩින් මැදට වෙන්න පිහිටුවා ඇත) -->
+  <div class="max-w-7xl mx-auto px-6 my-12 flex justify-center overflow-hidden">
+    <div class="w-full max-w-[468px] md:max-w-[728px]">
+      <script async="async" data-cfasync="false" src="https://pl29767297.effectivecpmnetwork.com/7b7ad536693feb72dbb523aa28de748a/invoke.js"></script>
+      <div id="container-7b7ad536693feb72dbb523aa28de748a"></div>
+    </div>
+  </div>
+
   <!-- LIGHTBOX / IMAGE MODAL -->
   <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden flex flex-col items-center justify-center p-4 transition-all duration-300">
     <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl font-light hover:text-brand-fog transition-colors">&times;</button>
@@ -224,7 +237,6 @@
       const cards = document.querySelectorAll('.photo-card');
       const btns = document.querySelectorAll('.filter-btn');
 
-      // බටන් ස්ටයිල්ස් වෙනස් කිරීම
       btns.forEach(b => {
         b.classList.remove('bg-brand-ink', 'text-white');
         b.classList.add('border-brand-stone', 'text-brand-dust');
@@ -234,7 +246,6 @@
         btn.classList.remove('border-brand-stone', 'text-brand-dust');
       }
 
-      // සර්ච් බාර් එක ක්ලියර් කිරීම (ටැබ් එකක් ක්ලික් කළ විට)
       document.getElementById('search-input').value = '';
 
       cards.forEach(card => {
@@ -246,15 +257,14 @@
       });
     }
 
-    // 🔍 New Search Functionality
+    // 🔍 Search Functionality
     function searchGallery(event) {
-      event.preventDefault(); // ෆෝම් එක රිෆ්‍රෙෂ් වීම නවත්වයි
+      event.preventDefault(); 
       
       const query = document.getElementById('search-input').value.toLowerCase().trim();
       const cards = document.querySelectorAll('.photo-card');
       const btns = document.querySelectorAll('.filter-btn');
 
-      // සර්ච් කරද්දී ටැබ් බටන් වල active ගතිය "All" එකට මාරු කිරීම
       btns.forEach(b => {
         b.classList.remove('bg-brand-ink', 'text-white');
         b.classList.add('border-brand-stone', 'text-brand-dust');
@@ -262,7 +272,6 @@
       document.getElementById('btn-all').classList.add('bg-brand-ink', 'text-white');
 
       cards.forEach(card => {
-        // කාඩ් එකේ තියෙන Keywords සහ Category එක සර්ච් වචනයට ගැලපේදැයි බැලීම
         const keywords = card.dataset.keywords ? card.dataset.keywords.toLowerCase() : '';
         const category = card.dataset.category ? card.dataset.category.toLowerCase() : '';
         
@@ -273,7 +282,6 @@
         }
       });
 
-      // සර්ච් කළ පසු කෙළින්ම කැමරාව ගැලරිය වෙතට ස්ක්‍රෝල් කරවයි
       document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
     }
 
@@ -308,11 +316,7 @@
         closeLightbox();
       }
     });
-   
   </script>
-  <script async="async" data-cfasync="false" src="https://pl29767297.effectivecpmnetwork.com/7b7ad536693feb72dbb523aa28de748a/invoke.js"></script>
-<div id="container-7b7ad536693feb72dbb523aa28de748a"></div>
-
   
 </body>
 </html>
