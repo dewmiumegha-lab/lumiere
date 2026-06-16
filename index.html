@@ -89,11 +89,11 @@
 
 <body class="bg-brand-mist text-brand-ink">
   
-  <!-- ADSTERRA BANNER CONFIGURATION SCRIPT -->
+  <!-- ADSTERRA BANNER SYSTEM SCRIPT -->
   <script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
 
   <!-- NAVIGATION BAR -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-mist/95 backdrop-blur-md border-b border-brand-stone">
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-mist/95 backdrop-blur-md border-b border-brand-stone">
     <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="#111110" stroke-width="1.2"/><circle cx="11" cy="11" r="3.5" fill="#111110"/></svg>
@@ -109,43 +109,42 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-brand-stone/40">
+  <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-brand-stone/40 z-10">
     <div class="absolute inset-0 z-0">
       <img src="images/kadupul.jpg" class="w-full h-full object-cover opacity-20" alt="" />
     </div>
 
-    <div class="relative z-10 max-w-3xl mx-auto mt-16">
+    <div class="relative z-20 max-w-3xl mx-auto mt-16">
       <p class="text-brand-dust text-[11px] tracking-[0.3em] uppercase mb-4 font-semibold">Curated Aesthetic Imagery</p>
       <h1 class="text-brand-ink font-display text-5xl md:text-7xl font-light mb-8 leading-tight">
         Capture the quiet <br/> <em class="font-normal italic">beauty of the world.</em>
       </h1>
 
       <!-- Search Bar UI -->
-      <form class="flex w-full max-w-xl mx-auto bg-white rounded-sm shadow-md overflow-hidden border border-brand-stone" onsubmit="searchGallery(event)">
+      <form class="flex w-full max-w-xl mx-auto bg-white rounded-sm shadow-md overflow-hidden border border-brand-stone mb-10" onsubmit="searchGallery(event)">
         <input id="search-input" type="text" placeholder="Search for nature photography..." class="flex-1 px-6 py-4 text-sm outline-none text-brand-ink" />
         <button type="submit" class="bg-brand-ink text-white px-8 py-4 text-xs uppercase tracking-widest hover:bg-black transition-all">Search</button>
       </form>
+
+      <!-- 🎯 AD 1: 728x90 BANNER (මෙතනින් උඩට පැනීම වැළැක්වීමට Div Container එකක් ඇතුළට දමා ඇත) -->
+      <div class="relative inline-block max-w-full overflow-hidden justify-center items-center my-4">
+        <script>
+          atOptions = {
+            'key' : '1a044cfac8693d5af1a4bfe1d0538227',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
+      </div>
+
     </div>
   </section>
 
-  <!-- 🎯 AD 1: 728x90 LEADERBOARD BANNER (GALLERY එකට උඩින් මැදට වෙන්න පිහිටුවා ඇත) -->
-  <div class="max-w-7xl mx-auto px-6 mt-12 flex justify-center overflow-hidden">
-    <div class="w-full max-w-[728px]">
-      <script>
-        atOptions = {
-          'key' : '1a044cfac8693d5af1a4bfe1d0538227',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
-    </div>
-  </div>
-
   <!-- GALLERY SECTION -->
-  <main id="gallery" class="max-w-7xl mx-auto px-6 py-12">
+  <main id="gallery" class="max-w-7xl mx-auto px-6 py-16 relative z-20">
     
     <!-- Filter Tabs Buttons -->
     <div class="flex flex-wrap gap-3 mb-12 justify-center">
@@ -189,9 +188,9 @@
     </div>
   </main>
 
-  <!-- 🎯 AD 2: NATIVE BANNER AD (FOOTER එකට කෙළින්ම උඩින් මැදට වෙන්න පිහිටුවා ඇත) -->
-  <div class="max-w-7xl mx-auto px-6 my-12 flex justify-center overflow-hidden">
-    <div class="w-full max-w-[468px] md:max-w-[728px]">
+  <!-- 🎯 AD 2: NATIVE BANNER AD -->
+  <div class="max-w-7xl mx-auto px-6 my-12 flex justify-center overflow-hidden relative z-20">
+    <div class="w-full max-w-[728px]">
       <script async="async" data-cfasync="false" src="https://pl29767297.effectivecpmnetwork.com/7b7ad536693feb72dbb523aa28de748a/invoke.js"></script>
       <div id="container-7b7ad536693feb72dbb523aa28de748a"></div>
     </div>
@@ -214,7 +213,7 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="bg-brand-ink text-white py-16 px-6">
+  <footer class="bg-brand-ink text-white py-16 px-6 relative z-20">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div class="text-center md:text-left">
         <h3 class="font-display text-2xl mb-2">Lumière</h3>
@@ -232,7 +231,6 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Gallery Filter Function (Tabs)
     function filterGallery(category, btn) {
       const cards = document.querySelectorAll('.photo-card');
       const btns = document.querySelectorAll('.filter-btn');
@@ -257,7 +255,6 @@
       });
     }
 
-    // 🔍 Search Functionality
     function searchGallery(event) {
       event.preventDefault(); 
       
@@ -285,7 +282,6 @@
       document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Lightbox Open Function
     function openLightbox(imgSrc, titleText) {
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
@@ -302,7 +298,6 @@
       document.body.style.overflow = 'hidden';
     }
 
-    // Lightbox Close Function
     function closeLightbox() {
       const lightbox = document.getElementById('lightbox');
       lightbox.classList.add('hidden');
@@ -310,7 +305,6 @@
       document.body.style.overflow = 'auto';
     }
 
-    // Close on clicking outside the image background
     document.getElementById('lightbox').addEventListener('click', function(e) {
       if (e.target === this) {
         closeLightbox();
