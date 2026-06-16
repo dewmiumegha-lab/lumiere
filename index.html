@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lumière — Premium Stock Photography</title>
 
+  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
+  <!-- TAILWIND CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -76,7 +78,7 @@
       background: #000000;
     }
 
-    .photo-card.hidden { display: none; }
+    .photo-card.hidden { display: none !important; }
 
     .nav-link { color: #111110 !important; font-weight: 500; }
     .nav-link:hover { border-bottom: 1px solid #111110; }
@@ -85,6 +87,7 @@
 
 <body class="bg-brand-mist text-brand-ink">
 
+  <!-- NAVIGATION BAR -->
   <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-mist/95 backdrop-blur-md border-b border-brand-stone">
     <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2">
@@ -100,6 +103,7 @@
     </nav>
   </header>
 
+  <!-- HERO SECTION -->
   <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-brand-stone/40">
     <div class="absolute inset-0 z-0">
       <img src="images/kadupul.jpg" class="w-full h-full object-cover opacity-20" alt="" />
@@ -111,23 +115,28 @@
         Capture the quiet <br/> <em class="font-normal italic">beauty of the world.</em>
       </h1>
 
-      <form class="flex w-full max-w-xl mx-auto bg-white rounded-sm shadow-md overflow-hidden border border-brand-stone" onsubmit="event.preventDefault();">
-        <input type="text" placeholder="Search for nature photography..." class="flex-1 px-6 py-4 text-sm outline-none text-brand-ink" />
-        <button class="bg-brand-ink text-white px-8 py-4 text-xs uppercase tracking-widest hover:bg-black transition-all">Search</button>
+      <!-- Search Bar UI (searchGallery ෆන්ක්ෂන් එක Onsubmit එකට සම්බන්ධ කර ඇත) -->
+      <form class="flex w-full max-w-xl mx-auto bg-white rounded-sm shadow-md overflow-hidden border border-brand-stone" onsubmit="searchGallery(event)">
+        <input id="search-input" type="text" placeholder="Search for nature photography..." class="flex-1 px-6 py-4 text-sm outline-none text-brand-ink" />
+        <button type="submit" class="bg-brand-ink text-white px-8 py-4 text-xs uppercase tracking-widest hover:bg-black transition-all">Search</button>
       </form>
     </div>
   </section>
 
+  <!-- GALLERY SECTION -->
   <main id="gallery" class="max-w-7xl mx-auto px-6 py-20">
     
+    <!-- Filter Tabs Buttons -->
     <div class="flex flex-wrap gap-3 mb-12 justify-center">
-      <button class="filter-btn px-6 py-2 text-[10px] uppercase tracking-widest border border-brand-ink bg-brand-ink text-white" onclick="filterGallery('all', this)">All</button>
+      <button id="btn-all" class="filter-btn px-6 py-2 text-[10px] uppercase tracking-widest border border-brand-ink bg-brand-ink text-white" onclick="filterGallery('all', this)">All</button>
       <button class="filter-btn px-6 py-2 text-[10px] uppercase tracking-widest border border-brand-stone text-brand-dust" onclick="filterGallery('nature', this)">Nature</button>
     </div>
 
+    <!-- Gallery Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       
-      <div class="photo-card" data-category="nature">
+      <!-- Card 1: Sunset -->
+      <div class="photo-card" data-category="nature" data-keywords="sunset golden hour tree silhouette sun evening">
         <div class="w-full aspect-[3/4] overflow-hidden rounded-t-[4px] cursor-pointer" onclick="openLightbox('images/sunset.jpg', 'Golden Hour Nature Silhouette')">
           <img src="images/sunset.jpg" alt="Aesthetic sunset photography with tree silhouettes during golden hour in Sri Lanka" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" loading="lazy" />
         </div>
@@ -140,7 +149,8 @@
         </div>
       </div>
 
-      <div class="photo-card" data-category="nature">
+      <!-- Card 2: Kadupul -->
+      <div class="photo-card" data-category="nature" data-keywords="kadupul flower white midnight bloom night macro">
         <div class="w-full aspect-[3/4] overflow-hidden rounded-t-[4px] cursor-pointer" onclick="openLightbox('images/kadupul.jpg', 'Midnight Kadupul Bloom')">
           <img src="images/kadupul.jpg" alt="Rare white Kadupul flower blooming at night, premium macro aesthetic photography" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" loading="lazy" />
         </div>
@@ -156,6 +166,7 @@
     </div>
   </main>
 
+  <!-- LIGHTBOX / IMAGE MODAL -->
   <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden flex flex-col items-center justify-center p-4 transition-all duration-300">
     <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl font-light hover:text-brand-fog transition-colors">&times;</button>
     
@@ -171,6 +182,7 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer class="bg-brand-ink text-white py-16 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div class="text-center md:text-left">
@@ -187,18 +199,25 @@
     </div>
   </footer>
 
+  <!-- SCRIPTS -->
   <script>
-    // Gallery Filter Function
+    // Gallery Filter Function (Tabs)
     function filterGallery(category, btn) {
       const cards = document.querySelectorAll('.photo-card');
       const btns = document.querySelectorAll('.filter-btn');
 
+      // බටන් ස්ටයිල්ස් වෙනස් කිරීම
       btns.forEach(b => {
         b.classList.remove('bg-brand-ink', 'text-white');
         b.classList.add('border-brand-stone', 'text-brand-dust');
       });
-      btn.classList.add('bg-brand-ink', 'text-white');
-      btn.classList.remove('border-brand-stone', 'text-brand-dust');
+      if(btn) {
+        btn.classList.add('bg-brand-ink', 'text-white');
+        btn.classList.remove('border-brand-stone', 'text-brand-dust');
+      }
+
+      // සර්ච් බාර් එක ක්ලියර් කිරීම (ටැබ් එකක් ක්ලික් කළ විට)
+      document.getElementById('search-input').value = '';
 
       cards.forEach(card => {
         if (category === 'all' || card.dataset.category === category) {
@@ -207,6 +226,37 @@
           card.classList.add('hidden');
         }
       });
+    }
+
+    // 🔍 New Search Functionality
+    function searchGallery(event) {
+      event.preventDefault(); // ෆෝම් එක රිෆ්‍රෙෂ් වීම නවත්වයි
+      
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.photo-card');
+      const btns = document.querySelectorAll('.filter-btn');
+
+      // සර්ච් කරද්දී ටැබ් බටන් වල active ගතිය "All" එකට මාරු කිරීම
+      btns.forEach(b => {
+        b.classList.remove('bg-brand-ink', 'text-white');
+        b.classList.add('border-brand-stone', 'text-brand-dust');
+      });
+      document.getElementById('btn-all').classList.add('bg-brand-ink', 'text-white');
+
+      cards.forEach(card => {
+        // කාඩ් එකේ තියෙන Keywords සහ Category එක සර්ච් වචනයට ගැලපේදැයි බැලීම
+        const keywords = card.dataset.keywords ? card.dataset.keywords.toLowerCase() : '';
+        const category = card.dataset.category ? card.dataset.category.toLowerCase() : '';
+        
+        if (query === '' || keywords.includes(query) || category.includes(query)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // සර්ච් කළ පසු කෙළින්ම කැමරාව ගැලරිය වෙතට ස්ක්‍රෝල් කරවයි
+      document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
     }
 
     // Lightbox Open Function
@@ -223,7 +273,7 @@
 
       lightbox.classList.remove('hidden');
       lightbox.classList.add('flex');
-      document.body.style.overflow = 'hidden'; // Background scrolling නවත්වයි
+      document.body.style.overflow = 'hidden';
     }
 
     // Lightbox Close Function
@@ -231,7 +281,7 @@
       const lightbox = document.getElementById('lightbox');
       lightbox.classList.add('hidden');
       lightbox.classList.remove('flex');
-      document.body.style.overflow = 'auto'; // Background scrolling සාමාන්‍ය තත්වයට පත් කරයි
+      document.body.style.overflow = 'auto';
     }
 
     // Close on clicking outside the image background
