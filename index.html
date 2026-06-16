@@ -7,12 +7,10 @@
   <meta name="google-site-verification" content="X5UuLucrnpxfJYhswEysCfvTCaubm3HXs5Rt2uIyFKo" />
   <meta name="p:domain_verify" content="ca638c91712ea961266f4f1a31002772"/>
   
-  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- TAILWIND CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -88,11 +86,7 @@
 </head>
 
 <body class="bg-brand-mist text-brand-ink">
-  
-  <!-- ADSTERRA BANNER SYSTEM SCRIPT -->
-  <script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
 
-  <!-- NAVIGATION BAR -->
   <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-mist/95 backdrop-blur-md border-b border-brand-stone">
     <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2">
@@ -108,56 +102,33 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-brand-stone/40 z-10">
+  <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-brand-stone/40">
     <div class="absolute inset-0 z-0">
       <img src="images/kadupul.jpg" class="w-full h-full object-cover opacity-20" alt="" />
     </div>
 
-    <div class="relative z-20 max-w-3xl mx-auto mt-16">
+    <div class="relative z-10 max-w-3xl mx-auto mt-16">
       <p class="text-brand-dust text-[11px] tracking-[0.3em] uppercase mb-4 font-semibold">Curated Aesthetic Imagery</p>
       <h1 class="text-brand-ink font-display text-5xl md:text-7xl font-light mb-8 leading-tight">
         Capture the quiet <br/> <em class="font-normal italic">beauty of the world.</em>
       </h1>
 
-      <!-- Search Bar UI -->
-      <form class="flex w-full max-w-xl mx-auto bg-white rounded-sm shadow-md overflow-hidden border border-brand-stone mb-10" onsubmit="searchGallery(event)">
+      <form class="flex w-full max-w-xl mx-auto bg-white rounded-sm shadow-md overflow-hidden border border-brand-stone" onsubmit="searchGallery(event)">
         <input id="search-input" type="text" placeholder="Search for nature photography..." class="flex-1 px-6 py-4 text-sm outline-none text-brand-ink" />
         <button type="submit" class="bg-brand-ink text-white px-8 py-4 text-xs uppercase tracking-widest hover:bg-black transition-all">Search</button>
       </form>
-
-      <!-- 🎯 AD 1: 728x90 BANNER (මෙතනින් උඩට පැනීම වැළැක්වීමට Div Container එකක් ඇතුළට දමා ඇත) -->
-      <div class="relative inline-block max-w-full overflow-hidden justify-center items-center my-4">
-        <script>
-          atOptions = {
-            'key' : '1a044cfac8693d5af1a4bfe1d0538227',
-            'format' : 'iframe',
-            'height' : 90,
-            'width' : 728,
-            'params' : {}
-          };
-        </script>
-        <script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
-      </div>
-
     </div>
   </section>
 
-  <!-- GALLERY SECTION -->
-  <main id="gallery" class="max-w-7xl mx-auto px-6 py-16 relative z-20">
+  <main id="gallery" class="max-w-7xl mx-auto px-6 py-16">
     
-    <!-- Filter Tabs Buttons -->
     <div class="flex flex-wrap gap-3 mb-12 justify-center">
-      <script src="https://pl29767540.effectivecpmnetwork.com/74/01/c0/7401c09819ddb34d584492fe548b875d.js"></script>
-
       <button id="btn-all" class="filter-btn px-6 py-2 text-[10px] uppercase tracking-widest border border-brand-ink bg-brand-ink text-white" onclick="filterGallery('all', this)">All</button>
       <button class="filter-btn px-6 py-2 text-[10px] uppercase tracking-widest border border-brand-stone text-brand-dust" onclick="filterGallery('nature', this)">Nature</button>
     </div>
 
-    <!-- Gallery Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       
-      <!-- Card 1: Sunset -->
       <div class="photo-card" data-category="nature" data-keywords="sunset golden hour tree silhouette sun evening">
         <div class="w-full aspect-[3/4] overflow-hidden rounded-t-[4px] cursor-pointer" onclick="openLightbox('images/sunset.jpg', 'Golden Hour Nature Silhouette')">
           <img src="images/sunset.jpg" alt="Aesthetic sunset photography with tree silhouettes during golden hour in Sri Lanka" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" loading="lazy" />
@@ -171,7 +142,6 @@
         </div>
       </div>
 
-      <!-- Card 2: Kadupul -->
       <div class="photo-card" data-category="nature" data-keywords="kadupul flower white midnight bloom night macro">
         <div class="w-full aspect-[3/4] overflow-hidden rounded-t-[4px] cursor-pointer" onclick="openLightbox('images/kadupul.jpg', 'Midnight Kadupul Bloom')">
           <img src="images/kadupul.jpg" alt="Rare white Kadupul flower blooming at night, premium macro aesthetic photography" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" loading="lazy" />
@@ -186,17 +156,31 @@
       </div>
                
     </div>
+
+    <div class="w-full flex justify-center overflow-hidden my-16 clear-both">
+      <div class="inline-block text-center border border-brand-stone/40 p-2 bg-white rounded shadow-sm">
+        <script>
+          atOptions = {
+            'key' : '1a044cfac8693d5af1a4bfe1d0538227',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/1a044cfac8693d5af1a4bfe1d0538227/invoke.js"></script>
+      </div>
+    </div>
+
   </main>
 
-  <!-- 🎯 AD 2: NATIVE BANNER AD -->
-  <div class="max-w-7xl mx-auto px-6 my-12 flex justify-center overflow-hidden relative z-20">
+  <div class="max-w-7xl mx-auto px-6 mb-16 flex justify-center overflow-hidden">
     <div class="w-full max-w-[728px]">
       <script async="async" data-cfasync="false" src="https://pl29767297.effectivecpmnetwork.com/7b7ad536693feb72dbb523aa28de748a/invoke.js"></script>
       <div id="container-7b7ad536693feb72dbb523aa28de748a"></div>
     </div>
   </div>
 
-  <!-- LIGHTBOX / IMAGE MODAL -->
   <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden flex flex-col items-center justify-center p-4 transition-all duration-300">
     <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl font-light hover:text-brand-fog transition-colors">&times;</button>
     
@@ -212,8 +196,7 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-brand-ink text-white py-16 px-6 relative z-20">
+  <footer class="bg-brand-ink text-white py-16 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div class="text-center md:text-left">
         <h3 class="font-display text-2xl mb-2">Lumière</h3>
@@ -229,7 +212,6 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
     function filterGallery(category, btn) {
       const cards = document.querySelectorAll('.photo-card');
