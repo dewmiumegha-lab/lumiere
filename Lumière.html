@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumière — Premium Stock Photography</title>
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- TAILWIND CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              ink:   '#111110',   
+              mist:  '#F7F6F3',   
+              stone: '#E8E6E1',   
+              dust:  '#8C8A85',   
+              fog:   '#CFCDC8',   
+              cream: '#FFFDF9',   
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F7F6F3;
+      color: #111110;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Masonry Grid Setup */
+    .photo-grid {
+      columns: 4;
+      column-gap: 20px;
+    }
+
+    .photo-card {
+      break-inside: avoid;
+      margin-bottom: 24px;
+      position: relative;
+      background: #FFFDF9;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-card img {
+      width: 100%;
+      display: block;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .info-deck {
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #E8E6E1;
+      border-top: none;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .license-btn {
+      padding: 6px 12px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #FFFDF9;
+      background: #111110;
+      border-radius: 2px;
+    }
+
+    .photo-card.hidden { display: none; }
+
+    @media (max-width: 1100px) { .photo-grid { columns: 3; } }
+    @media (max-width: 700px)  { .photo-grid { columns: 2; } }
+    @media (max-width: 450px)  { .photo-grid { columns: 1; } }
+
+    .nav-link { color: #111110 !important; font-weight: 500; }
+    .nav-link:hover { border-bottom: 1px solid #111110; }
+  </style>
+</head>
+
+<body class="bg-brand-mist text-brand-ink">
+
+  <!-- NAVIGATION BAR -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-mist/95 backdrop-blur-md border-b border-brand-stone">
+    <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="#111110" stroke-width="1.2"/><circle cx="11" cy="11" r="3.5" fill="#111110"/></svg>
+        <span class="font-display text-xl tracking-wider uppercase text-brand-ink">Lumière</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 text-xs tracking-widest uppercase">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="mailto:your-email@domain.com" class="px-4 py-2 bg-brand-ink text-white rounded-sm hover:bg-black transition-all">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-brand-stone/40">
+    <div class="absolute inset-0 z-0">
+      <img src="images/photo1.jpg" class="w-full h-full object-cover opacity-20" alt="" />
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto mt-16">
+      <p class="text-brand-dust text-[11px] tracking-[0.3em] uppercase mb-4 font-semibold">Curated Aesthetic Imagery</p>
+      <h1 class="text-brand-ink font-display text-5xl md:text-7xl font-light mb-8 leading-tight">
+        Capture the quiet <br/> <em class="font-normal italic">beauty of the world.</em>
+      </h1>
+
+      <!-- Search Bar UI -->
+      <form class="flex w-full max-w-xl mx-auto bg-white rounded-sm shadow-md overflow-hidden border border-brand-stone" onsubmit="event.preventDefault();">
+        <input type="text" placeholder="Search for nature photography..." class="flex-1 px-6 py-4 text-sm outline-none text-brand-ink" />
+        <button class="bg-brand-ink text-white px-8 py-4 text-xs uppercase tracking-widest hover:bg-black transition-all">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <main id="gallery" class="max-w-7xl mx-auto px-6 py-20">
+    
+    <!-- Filter Tabs Buttons (Minimal and Architecture Buttons Removed) -->
+    <div class="flex flex-wrap gap-3 mb-12 justify-center">
+      <button class="filter-btn px-6 py-2 text-[10px] uppercase tracking-widest border border-brand-ink bg-brand-ink text-white" onclick="filterGallery('all', this)">All</button>
+      <button class="filter-btn px-6 py-2 text-[10px] uppercase tracking-widest border border-brand-stone text-brand-dust" onclick="filterGallery('nature', this)">Nature</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="photo-grid">
+      
+      <!-- Card 1: Nature -->
+      <div class="photo-card" data-category="nature">
+        <img src="images/photo1.jpg" alt="Nature Photo 1" loading="lazy" />
+        <div class="info-deck">
+          <span class="text-[10px] text-brand-dust">Photo by Me</span>
+          <a href="images/photo1.jpg" download class="license-btn">Download</a>
+        </div>
+      </div>
+               
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-ink text-white py-16 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="text-center md:text-left">
+        <h3 class="font-display text-2xl mb-2">Lumière</h3>
+        <p class="text-white/40 text-xs tracking-widest">© 2026 PREMIUM STOCK PHOTOGRAPHY PORTFOLIO</p>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <span class="text-xs text-white/60 uppercase tracking-widest">Follow my work on Pinterest:</span>
+        <a href="#" target="_blank" class="bg-[#E60023] p-3 rounded-full hover:scale-110 transition-transform flex items-center justify-center">
+          <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.771-2.249 3.771-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.032-1.002 2.324-1.492 3.121C10.211 23.891 11.093 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterGallery(category, btn) {
+      const cards = document.querySelectorAll('.photo-card');
+      const btns = document.querySelectorAll('.filter-btn');
+
+      btns.forEach(b => {
+        b.classList.remove('bg-brand-ink', 'text-white');
+        b.classList.add('border-brand-stone', 'text-brand-dust');
+      });
+      btn.classList.add('bg-brand-ink', 'text-white');
+      btn.classList.remove('border-brand-stone', 'text-brand-dust');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
